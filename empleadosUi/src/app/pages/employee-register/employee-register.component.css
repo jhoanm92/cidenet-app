@@ -1,0 +1,18 @@
+.mat-form-field {
+  width: 100%;
+}
+
+.in_center {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.margin {
+  margin-right: 10px;
+}

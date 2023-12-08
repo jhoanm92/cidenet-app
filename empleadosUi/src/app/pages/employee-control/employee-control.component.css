@@ -1,0 +1,7 @@
+.mat-mini-fab{
+    background-color: red;
+}
+
+mat-header-cell, mat-cell {
+    justify-content: center;
+  }

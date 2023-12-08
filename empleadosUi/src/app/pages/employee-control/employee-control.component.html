@@ -1,0 +1,52 @@
+<mat-card class="example-card">
+
+    <button mat-flat-button color="primary" (click)="openDialog()">Agregar Empleado <mat-icon>add</mat-icon></button>
+    <br> <br>
+
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Primer Nombre </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element; let i = index"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="surname">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Primer Apellido </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="extraName">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Segundo Apellido </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.extraName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="country">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Pais </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.country.nameCountry}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Correo Electronico </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element">
+                <button mat-mini-fab color="warn" (click)="eliminar(element.id)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator [pageSize]="pageable.size"
+    [pageSizeOptions]="pageable.pageSizeOptions"
+    [length]="pageable.totalElements"
+    aria-label="Select page"
+    (page)="paginate($event)">
+    </mat-paginator>
+
+</mat-card>

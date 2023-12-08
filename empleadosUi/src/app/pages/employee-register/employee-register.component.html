@@ -1,0 +1,63 @@
+<mat-card class="example-card">
+
+    <mat-card-header class="">
+        <mat-card-title class="">Registrar Empleado</mat-card-title>
+    </mat-card-header>
+
+      <hr>
+
+  <form [formGroup]="form">
+
+      <mat-form-field>
+          <mat-label> Primer Nombre </mat-label>
+          <input matInput type="text"
+          placeholder=""
+          (keypress)="validateIsDirrection($event)"
+          maxlength="20"
+          onpaste="return false"
+          formControlName="name"
+          matInput oninput="this.value = this.value.toUpperCase()">
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label> Primer Apellido </mat-label>
+          <input matInput type="text"
+          placeholder=""
+          (keypress)="validateIsDirrection($event)"
+          maxlength="20"
+          onpaste="return false"
+          formControlName="surname"
+          matInput oninput="this.value = this.value.toUpperCase()">
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label> Segundo Apellido </mat-label>
+          <input matInput type="text"
+          placeholder=""
+          (keypress)="validateIsDirrectionEspace($event)"
+          maxlength="50"
+          onpaste="return false"
+          formControlName="extraName"
+          matInput oninput="this.value = this.value.toUpperCase()">
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label> Pais </mat-label>
+          <mat-select formControlName="country">
+              <mat-option *ngFor="let item of countries" [value]="item">
+                  {{item.nameCountry}}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <hr>
+
+      <div class="in_center">
+        <button mat-flat-button color="primary" class="margin" (click)="employeeRegister()" [disabled]="form.invalid">Registrar</button>
+        <button mat-flat-button color="warn" mat-dialog-close >Salir</button>
+      </div>
+
+  </form>
+
+</mat-card>
+

@@ -1,0 +1,7 @@
+.boton {
+  display: flex;
+  justify-content: center;
+  margin: 100px 35%;
+  padding: 50px 50px;
+  font-size: 30px;
+}

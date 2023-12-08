@@ -1,0 +1,9 @@
+.in_center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin{
+    margin-right: 10px;
+    background-color: red;
+}
